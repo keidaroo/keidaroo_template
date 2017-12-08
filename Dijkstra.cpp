@@ -54,7 +54,7 @@ int main() {
     ll a, b, c; // a to b(b to a), cost c
     cin >> a >> b >> c;
     graph[a].push_back({b, e});
-    graph[a].push_back({b, e});
+    graph[b].push_back({a, e});
   }
   Dijkstra(0); // dijkstra from point 0
   REP(i, n) {
