@@ -53,8 +53,8 @@ int main() {
   REP(i, e) {
     ll a, b, c; // a to b(b to a), cost c
     cin >> a >> b >> c;
-    graph[a].push_back({b, e});
-    graph[b].push_back({a, e});
+    graph[a].push_back({b, c});
+    graph[b].push_back({a, c});
   }
   Dijkstra(0); // dijkstra from point 0
   REP(i, n) {
