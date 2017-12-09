@@ -17,9 +17,9 @@ struct edge {
   edge() {}
   edge(ll to_, ll cost_) : to(to_), cost(cost_) {}
 };
-std::vector<edge> graph[N_MAX];
+std::vector<edge> graph[N_MAX];//the amount of point
 
-// O(ElogV)ダイクストラ
+// O(ElogV)Dijkstra
 ll D[N_MAX];
 void Dijkstra(uint32_t s) {
   using P = std::pair<ll, ll>; // cost pos
