@@ -29,6 +29,23 @@
 - 1個遷移した後が行けなくてもその次はいける可能性がある
 - グローバル変数で変更したら戻す
 
+###花束
+[https://twitter.com/keidaroo/status/946974194771693569]
+- オーバーフローには気をつける
+
+###直線塗り
+[https://twitter.com/keidaroo/status/948565996813524994]
+- break文の書き忘れ
+- 例外処理は一番最初のパートでかく
+
+###高橋くんと禁断の書
+[https://twitter.com/keidaroo/status/949890535723974656]
+- 三平方の定理みたいに二乗すると誤差がでやすい
+- 三角関数を使う
+
+###音楽ゲーム
+[https://twitter.com/keidaroo/status/951443548179644416]
+- 入れる型を間違えた
 ## 考え方について
 ---
 ###マーブル
@@ -62,3 +79,30 @@
 ###駐車場
 [https://beta.atcoder.jp/contests/arc056/submissions/1918975]
 - 幅優先探索で、フクロモモンガ風に
+
+###高橋ノルム君
+[https://beta.atcoder.jp/contests/arc049/submissions/1930773]
+- 4つの頂点をとる四角形が存在するかどうかは、右より左のほうが値が大きかったりすれば存在しない、という風に判断する
+
+###同一円周上
+[https://twitter.com/keidaroo/status/947809147948384257]
+- マンハッタン距離の45度回転方法は(x-y,x+y)
+- 回転した後のmax(maxx-minx,maxy-miny)は正方形の一辺
+
+###最短路問題
+[https://beta.atcoder.jp/contests/arc044/submissions/1935859]
+- n(n-1)/2通り=n個の中から2つを選ぶ組み合わせ
+
+###難易度
+[https://twitter.com/keidaroo/status/948538194999443459]
+- imosDPの足し忘れに注意
+
+###高橋くんと禁断の書
+[https://twitter.com/keidaroo/status/949890535723974656]
+- 角度でもにぶたんができる
+- ちょっと難しいと思ったら全探索を考えて、にぶたんできる（単調増加するところ）があるか調べる
+
+#JJMO
+- 下二桁が〜とかそういう問題はmod 100をとってあげ、100-1==99だとかそういう性質を使って考える！
+- 図形が解けなかったら図の描き方のミスを疑う！
+- 解き直し

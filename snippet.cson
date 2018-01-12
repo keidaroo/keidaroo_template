@@ -1,0 +1,305 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+'.source.cpp':
+  'topological_sort':
+    'prefix':'topological_sort'
+    'body':'''
+    vector<ll> topological_sort(ll v, std::vector<ll> G[], ll num[]) {//numは入次数
+      std::vector<ll> zero, tpsorted; //入次数ゼロのもの、ソートした結果
+
+      REP(i, v) {
+        if (num[i] == 0) {
+          zero.push_back(i);
+        }
+      }
+      while (zero.size()) {
+        ll now = zero[zero.size() - 1];
+        tpsorted.push_back(now);
+        zero.pop_back();
+        for (auto &j : G[now]) {
+          num[j]--;
+          if (num[j] == 0) {
+            zero.push_back(j);
+          }
+        }
+      }
+      return tpsorted;
+    }
+    //---------------------------------------------------------------//
+    int main(){
+      ll v,e;
+      std::vector<ll> G[5001];
+      ll h[5001] = {};
+      cin >> v >> e;
+      REP(i, e) {
+        ll a, b;
+        cin >> a >> b;
+        a--;
+        b--;
+        G[a].push_back(b);
+        h[b]++;
+      }
+      std::vector<ll> tp = topological_sort(n, G, h);
+    }
+        //---------------------------------------------------------------//
+
+    '''
+  'gcd':
+    'prefix':'gcd'
+    'body':'''
+
+ll gcd(ll a, ll b) {
+  if (a == 0 || b == 0) {
+    return 0;
+  }
+  while (a % b) {
+    a = a % b;
+    swap(a, b);
+  }
+  return b;
+}
+  '''
+  'next':
+    'prefix':'next'
+    'body':'''
+ll ne(ll num) {
+  if (num == size - 1) {
+    return 0;
+  }
+  return num + 1;
+}
+    '''
+  'debug':
+    'prefix':'deb'
+    'body':'''
+
+      REP(ide1,100){
+        REP(ide2,100){
+          cout<<a[ide1][ide2]<<" ";
+        }
+        cout<<endl;
+      }
+
+    '''
+  'lower_bound':
+    'prefix':'lb'
+    'body':'lower_bound(a.begin(),a.end(),num)'
+  'zahyouasshuku':
+    'prefix':'zaatu'
+    'body':'''
+map<ll, ll> zip;
+int unzip[100001];
+
+int compress(vector<ll> &x) {
+	sort(x.begin(), x.end());
+	x.erase(unique(x.begin(), x.end()), x.end());
+	for (int i = 0; i < x.size(); i++) {
+		zip[x[i]] = i;
+		unzip[i] = x[i];
+	}
+	return x.size();
+}
+    '''
+  'dijkstra':
+    'prefix':'dijkstra'
+    'body':'''
+    struct edge {
+    ll to;
+    ll cost;
+    edge() {}
+    edge(ll to_, ll cost_)
+    :to(to_), cost(cost_) {}
+};
+std::vector<edge> graph[N_MAX];
+
+//O(ElogV)ダイクストラ
+ll D[N_MAX];
+void Dijkstra(uint32_t s)
+{
+    using P = std::pair<ll, ll>;//cost pos
+    std::priority_queue<P, std::vector<P>, std::greater<P> > que;
+    std::fill(std::begin(D), std::end(D), INF);
+
+    D[s] = 0;
+    que.emplace(0, s);
+    while (!que.empty())
+    {
+        auto p = que.top(); que.pop();
+        const auto& nowpos = p.second;
+        const auto& nowcost = p.first;
+        if (D[nowpos] < nowcost) { continue; }
+        for (const auto& e : graph[nowpos])
+        {
+            auto cost = nowcost + e.cost;
+            if (cost < D[e.to]) {
+                D[e.to] = cost;
+                que.emplace(cost, e.to);
+            }
+        }
+    }
+}
+    '''
+  'bfs':
+    'prefix':'bfs'
+    'body':'''
+vector<ll> G[N_MAX]; //グラフ
+
+void BFS(ll s, ll repeat) {
+  bool vis[N_MAX] = {}; // repeat回までにたどり着くものを全列挙
+  vis[s] = 1;
+  queue<P> q; //場所、回数
+  q.push(P(s, 0));
+  while (!q.empty()) {
+    ll place = q.front().first, many = q.front().second;
+    q.pop();
+    //ここに処理を書く
+
+    //ここまで
+    if (many == repeat)
+      continue; //回数関係ない場合はここをコメントアウト
+
+    for (auto i : G[place]) {
+      if (vis[i])
+        continue;
+      vis[i] = 1;
+      q.push(P(i, many + 1));
+    }
+  }
+}
+    '''
+
+  'DP':
+    'prefix':'dynamic_programming'
+    'body':'''
+ll dp[114514];
+
+ll DP(ll num) {
+  if (dp[num])
+    return dp[num];
+
+  if (num == 範囲のサイズ)
+    return 0;
+
+  ll cnt = 0;
+  REP(i, 遷移先) { cnt += DP(i); }
+  return dp[num] = cnt;
+}
+
+    '''
+  'powersnippet':
+    'prefix':'powersnippet'
+    'body':'''
+ll power(ll a, ll b, ll p) { // aのb乗をpで割ったあまりを計算する関数
+  if (b == 0) {
+    return 1;
+  }                            // 0乗は1
+  if (b % 2 == 0) {            //２の倍数なら省略できて
+    ll d = power(a, b / 2, p); //わるう
+    return (d * d) % p;        //２割ったので二乗う
+  }
+  return a * power(a, b - 1, p) % p; //２で割れないなら一個進める
+}
+
+
+'''
+  'unionfind':
+    'prefix':'unionfind'
+    'body':'''
+
+    ll par[300000], depth[300000];
+
+    void init(ll n) {
+      REP(i, n) {
+        par[i] = i;
+        depth[i] = 0;
+      }
+      return;
+    }
+
+    ll find(ll x) {
+      if (par[x] == x) {
+        return x;
+      } else {
+        return par[x] = find(par[x]);
+      }
+    }
+
+    void merge(ll x, ll y) {
+      x = find(x);
+      y = find(y);
+      if (x == y) {
+        return;
+      }
+      if (depth[x] > depth[y]) {
+        par[y] = x;
+      } else {
+        par[x] = y;
+        if (depth[x] == depth[y]) {
+          depth[y]++;
+        }
+      }
+    }
+
+    bool same(ll x, ll y) {
+      if (find(x) != find(y)) {
+        return false;
+      }
+      return true;
+    }
+    //親を知りたいときは必ずfind()を使う！
+'''
+  'fa':
+    'prefix':'fa'
+    'body':'for(auto &a$2:v$1){$0}'
+  'vl':
+    'prefix':'vl'
+    'body':'vector<ll> v$0;'
+  'cc':
+    'prefix':'cc'
+    'body':'cout<<$0<<endl;'
+  'sv':
+    'prefix':'sv'
+    'body':'sort(a$0.begin(),a$0.end());'
+  'uniqueerase':
+    'prefix':'verase'
+    'body':'v$0.erase(unique(v$0.begin(), v$0.end()), v$0.end());'
+  'in':
+    'prefix':'in'
+    'body':'''bool in(ll x, ll y) {
+      if (x < 0 || y < 0 || x == w || y == h)
+        return 0;
+      return 1;
+    }'''
+  'xy':
+    'prefix':'xy'
+    'body':'ll xy[] = {0, 1, 0, -1, 0};'
+  'imos2d':
+    'prefix':'imos2d'
+    'body':'''void imos(ll grid[200][200]) {
+      REP(i, h + 1) {
+        REP(j, w) { grid[i][j + 1] += grid[i][j]; }
+      }
+      REP(i, w + 1) {
+        REP(j, h) { grid[j + 1][i] += grid[j][i]; }
+      }
+    }'''
+

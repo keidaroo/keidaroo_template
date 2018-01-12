@@ -15,13 +15,13 @@ vector<vector<ll>> matrixcalc(vector<vector<ll>> l, vector<vector<ll>> r,
   return ans;
 }
 
-vector<vector<ll>> yojou(ll b) { // aのb乗をpで割ったあまりを計算する関数
+vector<vector<ll>> power(ll b) { // aのb乗をpで割ったあまりを計算する関数
   if (b == 1) {
     return grid;
   }
   if (b % 2 == 0) {                         //２の倍数なら省略できて
-    vector<vector<ll>> d = yojou(b / 2);    //わるう
+    vector<vector<ll>> d = power(b / 2);    //わるう
     return (matrixcalc(d, d, d[0].size())); //２割ったので二乗う
   }
-  return matrixcalc(grid, yojou(b - 1), k); //２で割れないなら一個進める
+  return matrixcalc(grid, power(b - 1), k); //２で割れないなら一個進める
 }
