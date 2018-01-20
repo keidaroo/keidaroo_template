@@ -302,4 +302,30 @@ ll power(ll a, ll b, ll p) { // aのb乗をpで割ったあまりを計算する
         REP(j, h) { grid[j + 1][i] += grid[j][i]; }
       }
     }'''
-
+  'fillall':
+    'prefix':'fillall'
+    'body':'''template <typename T> void fill_all(T &arr, const T &v) { arr = v; }
+    template <typename T, typename ARR> void fill_all(ARR &arr, const T &v) {
+      for (auto &i : arr) {
+        fill_all(i, v);
+      }
+    }'''
+  'lowerdefine':
+    'prefix':'lowerdefine'
+    'body':'''#define lb(a, b) lower_bound((a).begin(), (a).end(), (b))
+    #define ub(a, b) upper_bound((a).begin(), (a).end(), (b))'''
+  'numdefine':
+    'prefix':'numdefine'
+    'body':'''#define MOD 1000000007
+    #define INF 93193111451418101
+    #define MIN -93193111451418101
+    #define EPS 1e-11
+'''
+  'pairtype':
+    'prefix':'pairtype'
+    'body':'''typedef pair<ll, ll> P;
+  typedef pair<ll, P> TP;
+'''
+  'bitcntdefine':
+    'prefix':'bitcntdefine'
+    'body':'#define bitcnt(a) (ll) __builtin_popcount((a))'
