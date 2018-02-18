@@ -30,7 +30,7 @@ ll DFS(ll x, ll y) {
 
   //
   REP(i, 4) {
-    if (in(x + xy[i], y + xy[i + 1]))
+    if (in(x + xy[i], y + xy[i + 1] && !vis[x][y]))
       DFS(x + xy[i], y + xy[i + 1]); // put some stuff here
   }
   return 0; // or something

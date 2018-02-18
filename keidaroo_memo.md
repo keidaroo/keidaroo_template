@@ -55,6 +55,10 @@
 [https://beta.atcoder.jp/contests/arc010/submissions/1984586]
 - 早めに条件を代入しておく
 
+### P-CASカードと高橋くん
+[https://beta.atcoder.jp/contests/arc005/submissions/1987221]
+- 場合分けは着実に
+
 ## 考え方について
 ---
 ### マーブル
@@ -110,6 +114,11 @@
 [https://twitter.com/keidaroo/status/949890535723974656]
 - 角度でもにぶたんができる
 - ちょっと難しいと思ったら全探索を考えて、にぶたんできる（単調増加するところ）があるか調べる
+
+### すぬけそだて　トレーニング
+[https://beta.atcoder.jp/contests/colopl2018-qual/submissions/2018880]
+- DPは遷移先を制限することを考える
+- 何を引数としてとるか、っていうのをだんだん制限していく
 
 #JJMO
 - 下二桁が〜とかそういう問題はmod 100をとってあげ、100-1==99だとかそういう性質を使って考える！
