@@ -59,6 +59,9 @@
 [https://beta.atcoder.jp/contests/arc005/submissions/1987221]
 - 場合分けは着実に
 
+### SRM 721 DancingClass
+- 確率の場合は愚直にやらないと余りとかの関係で別の答えが出てきてしまう。
+
 ## 考え方について
 ---
 ### マーブル
@@ -119,6 +122,11 @@
 [https://beta.atcoder.jp/contests/colopl2018-qual/submissions/2018880]
 - DPは遷移先を制限することを考える
 - 何を引数としてとるか、っていうのをだんだん制限していく
+
+### 誰じゃ
+[https://beta.atcoder.jp/contests/arc024/submissions/2241581]
+- mapにvectorをキーとして持たせることができる
+- 常に最悪計算量について考えるべき
 
 #JJMO
 - 下二桁が〜とかそういう問題はmod 100をとってあげ、100-1==99だとかそういう性質を使って考える！

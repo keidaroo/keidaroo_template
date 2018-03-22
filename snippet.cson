@@ -19,6 +19,10 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+'.source.js':
+  'console.log()':
+    'prefix':'cl'
+    'body':'console.log($0);'
 '.source.cpp':
   'topological_sort':
     'prefix':'topological_sort'
