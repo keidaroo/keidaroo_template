@@ -19,6 +19,10 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+'.source.js':
+  'console.log()':
+    'prefix':'cl'
+    'body':'console.log($0);'
 '.source.cpp':
   'topological_sort':
     'prefix':'topological_sort'
@@ -94,7 +98,7 @@ ll ne(ll num) {
 
       REP(ide1,100){
         REP(ide2,100){
-          cout<<a[ide1][ide2]<<" ";
+          printf("%2lld ",grid[ide1][ide2]);
         }
         cout<<endl;
       }
@@ -294,13 +298,18 @@ ll power(ll a, ll b, ll p) { // aのb乗をpで割ったあまりを計算する
     'body':'ll xy[] = {0, 1, 0, -1, 0};'
   'imos2d':
     'prefix':'imos2d'
-    'body':'''void imos(ll grid[200][200]) {
-      REP(i, h + 1) {
-        REP(j, w) { grid[i][j + 1] += grid[i][j]; }
+    'body':'''
+    void imos(ll grid[2100][2100]) {
+      FOR(i, 1, h + 1) {
+        FOR(j, 1, w + 1) { grid[i][j] += grid[i][j - 1]; }
       }
-      REP(i, w + 1) {
-        REP(j, h) { grid[j + 1][i] += grid[j][i]; }
+      FOR(i, 1, w + 1) {
+        FOR(j, 1, h + 1) { grid[j][i] += grid[j - 1][i]; }
       }
+    }
+
+    ll imoscnt(ll lx, ll ly, ll rx, ll ry, ll grid[2100][2100]) {
+      return grid[rx][ry] - grid[rx][ly] - grid[lx][ry] + grid[lx][ly];
     }'''
   'fillall':
     'prefix':'fillall'
@@ -326,6 +335,13 @@ ll power(ll a, ll b, ll p) { // aのb乗をpで割ったあまりを計算する
     'body':'''typedef pair<ll, ll> P;
   typedef pair<ll, P> TP;
 '''
-  'bitcnt':
-    'prefix':'bitcnt'
-    'body':'(ll) __builtin_popcount($0)'
+  'bitcntdefine':
+    'prefix':'bitcntdefine'
+    'body':'#define bitcnt(a) (ll) __builtin_popcount((a))'
+  'rpf':
+    'prefix':'rpf'
+    'body':'return!printf("%lld\\\\n",$0);'
+'.source.python':
+  'cin':
+    'prefix':'cin'
+    'body':'map($0int, input().split())'

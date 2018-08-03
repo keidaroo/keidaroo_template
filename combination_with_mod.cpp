@@ -31,3 +31,12 @@ int main() {
   // nCkの場合
   calc(n, k);
 }
+
+//愚直コンビネーション（確率を求める時など）
+double combination_for(ll n, ll k) {
+  if (k < 0 || n < 0 || k > n)
+    return 0;
+  double r = 1;
+  FOR(i, 1, k + 1) { r *= (double)(n - i + 1) / i; }
+  return r;
+}
