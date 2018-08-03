@@ -55,6 +55,10 @@
 [https://beta.atcoder.jp/contests/arc010/submissions/1984586]
 - 早めに条件を代入しておく
 
+### People on a line
+[https://beta.atcoder.jp/contests/arc090/submissions/2035657]
+- Dijkstraや幅優先探索で一方向からのグラフを書くと、反対方向からの条件を無視してしまう
+
 ## 考え方について
 ---
 ### マーブル

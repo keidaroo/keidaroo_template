@@ -326,6 +326,6 @@ ll power(ll a, ll b, ll p) { // aのb乗をpで割ったあまりを計算する
     'body':'''typedef pair<ll, ll> P;
   typedef pair<ll, P> TP;
 '''
-  'bitcntdefine':
-    'prefix':'bitcntdefine'
-    'body':'#define bitcnt(a) (ll) __builtin_popcount((a))'
+  'bitcnt':
+    'prefix':'bitcnt'
+    'body':'(ll) __builtin_popcount($0)'
